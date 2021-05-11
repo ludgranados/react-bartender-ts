@@ -1,13 +1,25 @@
+import { Link } from 'react-router-dom';
+
+
 const Navbar = () => {
-    return (
-      <div id='cart'>
-        <div className='row text-center'>
-          <div className='col'>
-            <h2>Navbar!</h2>
-          </div>
+  return (
+    <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
+      {/* Logo */}
+      <Link to='/' className='navbar-brand'>
+        Drinkify
+      </Link>
+
+      {/* Menu */}
+      <div className='collapse navbar-collapse'>
+        <div className='navbar-nav'>
+          <Link className='nav-link' to='/'>
+            Home
+          </Link>
         </div>
       </div>
-    );
-  };
-  
-  export default Navbar;
+      
+    </nav>
+  );
+};
+
+export default Navbar;
