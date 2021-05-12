@@ -35,3 +35,6 @@ type Drink = {
     strMeasure14: string | null;
     strMeasure15: string | null;
 }
+type InitialStateType = {
+
+};
