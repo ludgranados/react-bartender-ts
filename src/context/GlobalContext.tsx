@@ -14,10 +14,10 @@ const appReducer = (state: any, action: any) => {
   switch (action.type) {
     case 'GET_DRINKS':
       // when a case matches, the return will update the state for us
-      return { ...state, products: action.payload };
+      return { ...state, drinks: action.payload };
     case 'GET_SINGLE_DRINK':
       // when case matches, bind the payload to the product property in state
-      return { ...state, product: action.payload, is_loading: false };
+      return { ...state, drink: action.payload, is_loading: false };
     case 'SET_LOADING':
       return { ...state, is_loading: action.payload };
     default:
@@ -36,7 +36,7 @@ export const GlobalProvider: React.FC = ({ children }) => {
   const getDrinks = async () => {
     try {
       let { data } = await instance.get('/api/json/v1/1/search.php?s=');
-      dispatch({ type: 'GET_DRINKS', payload: data });
+      dispatch({ type: 'GET_DRINKS', payload: data.drinks });
     } catch (e) {
       console.log(e);
     }
@@ -47,7 +47,7 @@ export const GlobalProvider: React.FC = ({ children }) => {
     try {
       let { data } = await instance.get(`/drinks/${drinkId}`);
       console.log(data);
-      dispatch({ type: 'GET_SINGLE_DRINK', payload: data.drinks });
+      dispatch({ type: 'GET_SINGLE_DRINK', payload: data.drink });
     } catch (e) {
       console.log(e);
     }
@@ -56,7 +56,11 @@ export const GlobalProvider: React.FC = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
-     
+        drinks: state.drinks,
+        drink: state.drink,
+        is_loading: state.is_loading,
+        getDrinks,
+        getSingleDrink
       }}>
       {children} {/* <AppRouter/> */}
     </GlobalContext.Provider>

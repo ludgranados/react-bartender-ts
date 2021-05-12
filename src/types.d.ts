@@ -1,4 +1,4 @@
-type Drinks = {
+type Drink = {
     idDrink: number,
     strDrink: string,
     strDrinkAlternate: string | null,
@@ -53,8 +53,8 @@ type Drinks = {
 }
 
 type InitialStateType = {
-    drinks: Drinks[],
-    drink: Drinks | undefined,
+    drinks: Drink[],
+    drink: Drink | undefined,
     is_loading: boolean,
     getDrinks: () => void,
     getSingleDrink: (drinkId: number) => void,
