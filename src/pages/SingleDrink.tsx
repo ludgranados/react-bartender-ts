@@ -1,9 +1,11 @@
+import SingleDrinkCard from '../components/SingleDrinkCard';
+
 const SingleDrink = () => {
     return (
-      <div id='cart'>
-        <div className='row text-center'>
-          <div className='col'>
-            <h2>Single Drink page!</h2>
+      <div id='single-drink'>
+        <div className='row my-5'>
+          <div className='col d-flex justify-content-center'>
+            <SingleDrinkCard />
           </div>
         </div>
       </div>
