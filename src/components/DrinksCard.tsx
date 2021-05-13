@@ -30,7 +30,7 @@ const DrinksCard: React.FC<CardProps> = ({ drink }) => {
   console.log(drinks);
 
     return (
-  <div className='card h-100 product-card-hover d-flex flex-column justify-content-between'>
+  <div className='product-card-hover d-flex flex-column justify-content-between'>
      
       <div className='drinks'>
 
@@ -38,7 +38,7 @@ const DrinksCard: React.FC<CardProps> = ({ drink }) => {
             
           {/* <div className=''> */}
 
-            <div className='card-body'>
+            <div className=''>
             <h2>{drink.strDrink}</h2>
 
             {/** Beverage Image */}
@@ -47,7 +47,7 @@ const DrinksCard: React.FC<CardProps> = ({ drink }) => {
             style={{ backgroundImage: `url(${drink.strDrinkThumb})` }}>  
             </div>
 
-            <Link to={`/cocktails/${drink.idDrink}`}>Beverage Details</Link>
+              <Link to={`/cocktails/${drink.idDrink}`}>Beverage Details</Link>
 
             {/** Type of Beverage */}
             <h4>"The {drink.strDrink} is an {drink.strAlcoholic} beverage."</h4>
