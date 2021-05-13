@@ -27,25 +27,25 @@ const Home = () => {
         </div>
         </div>
 
-          
-
             <div className='row'>
             {drinks.map((drink: Drink, i:number) => {
                return (
+                 
+                 <div className='col-sm-12 col-md-4 mb-3 text-center'>
 
-                <div className='col-sm-12 col-md-4 mb-3 text-center' key={i}>
+                <div key={i}>
                   <DrinksCard drink={drink} />
                 </div>
 
                 <div key={i}>{drink.strDrink}
                 <Link to={`/cocktails/${drink.idDrink}`}>{drink.strDrink}</Link></div>
+                
+                </div>
 
                );
              })}
             </div>
              
-          
-        {/* </div> */}
       </div>
     );
   };
