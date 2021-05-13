@@ -57,5 +57,5 @@ type InitialStateType = {
     drink: Drink | undefined,
     is_loading: boolean,
     getDrinks: () => void,
-    getSingleDrink: (drinkId: number) => void,
+    getSingleDrink: (drinkId: string) => void,
 };

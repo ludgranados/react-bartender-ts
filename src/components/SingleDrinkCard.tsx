@@ -1,61 +1,77 @@
-const SingleDrinkCard = () => {
-    return (
-      <div id='single-drink-card'>
-        <div className="row card d-flex justify-content-center align-items-center">
+import React from 'react';
+import '../App.css';
 
-          <div className="col mb-3" style={{maxWidth: "700px"}}>
-            <div className="row no-gutters">
-              <div className="col-md-4 d-flex justify-content-center align-items-center">
-                {/* <img src="strDrinkThumb" alt="strDrink"/> */}
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.PZepWHxAIw5xLX-BPZqy9AHaHa%26pid%3DApi&f=1" alt="cocktail" style={{height: "150px", width: "150px"}}/>
-              </div>
+interface DrinkProps {
+  drink: Drink | undefined;
+}
 
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">strDrink</h5>
-                  <p className="card-text">strInstructions - Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, modi! Sint itaque aliquid voluptatum, asperiores cumque cum vero quam repellendus qui excepturi vel, recusandae, id et voluptatibus? Magnam, architecto odit!</p>
-                </div>
-              </div>
+const SingleDrinkCard:React.FC<DrinkProps> = ( {drink} ) => {
 
+  if (!drink) {
+    return <div>There is no drink to show!</div>;
+  }
+
+  return (
+    <div id='single-drink-card'>
+      <div className="row card d-flex justify-content-center align-items-center">
+
+        <div className="col mb-3" style={{maxWidth: "700px"}}>
+          <div className="row no-gutters">
+            <div className="col-md-4 d-flex justify-content-center align-items-center">
+              <div
+                className='dr-bg-img'
+                style={{ backgroundImage: `url(${drink.strDrinkThumb})` }}></div>
             </div>
-          </div>
 
-          <div className="col mb-3" style={{maxWidth: "700px"}}>
-            <div className="row no-gutters d-flex justify-content-center">
-
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">Ingredients</h5>
-                  <p className="card-text">
-                    <ul>
-                      <li>strMeasure1 of strIngredient1</li>
-                      <li>strMeasure2 of strIngredient2</li>
-                      <li>strMeasure3 of strIngredient3</li>
-                      <li>strMeasure4 of strIngredient4</li>
-                      <li>strMeasure5 of strIngredient5</li>
-                      <li>strMeasure6 of strIngredient6</li>
-                      <li>strMeasure7 of strIngredient7</li>
-                      <li>strMeasure8 of strIngredient8</li>
-                      <li>strMeasure9 of strIngredient9</li>
-                      <li>strMeasure10 of strIngredient10</li>
-                      <li>strMeasure11 of strIngredient11</li>
-                      <li>strMeasure12 of strIngredient12</li>
-                      <li>strMeasure13 of strIngredient13</li>
-                      <li>strMeasure14 of strIngredient14</li>
-                      <li>strMeasure15 of strIngredient15</li>
-                    </ul>
-                  </p>
-                  <p className="card-text"><small className="text-muted">strCategory</small></p>
-                </div>
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">{drink.strDrink}</h5>
+                <p className="card-text">{drink.strGlass}</p>
+                <p className="card-text">{drink.strInstructions}</p>
               </div>
-              
             </div>
-          </div>
 
+          </div>
+        </div>
+
+        <div className="col mb-3" style={{maxWidth: "700px"}}>
+          <div className="row no-gutters d-flex justify-content-center">
+
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">Ingredients</h5>
+                <p className="card-text">
+                  <ul>
+                    <li>{drink.strMeasure1} of {drink.strIngredient1}</li>
+                    <li>{drink.strMeasure2} of {drink.strIngredient2}</li>
+                    <li>{drink.strMeasure3} of {drink.strIngredient3}</li>
+                    <li>{drink.strMeasure4} of {drink.strIngredient4}</li>
+                    <li>{drink.strMeasure5} of {drink.strIngredient5}</li>
+                    <li>{drink.strMeasure6} of {drink.strIngredient6}</li>
+                    <li>{drink.strMeasure7} of {drink.strIngredient7}</li>
+                    <li>{drink.strMeasure8} of {drink.strIngredient8}</li>
+                    <li>{drink.strMeasure9} of {drink.strIngredient9}</li>
+                    <li>{drink.strMeasure10} of {drink.strIngredient10}</li>
+                    <li>{drink.strMeasure11} of {drink.strIngredient11}</li>
+                    <li>{drink.strMeasure12} of {drink.strIngredient12}</li>
+                    <li>{drink.strMeasure13} of {drink.strIngredient13}</li>
+                    <li>{drink.strMeasure14} of {drink.strIngredient14}</li>
+                    <li>{drink.strMeasure15} of {drink.strIngredient15}</li>
+                  </ul>
+                </p>
+                <p className="card-text"><small className="text-muted">{drink.strCategory}</small></p>
+                <p className="card-text"><small className="text-muted">{drink.strAlcoholic}</small></p>
+                <p className="card-text"><small className="text-muted">{drink.dateModified}</small></p>
+              </div>
+            </div>
+            
+          </div>
         </div>
 
       </div>
-    );
-  };
+
+    </div>
+  );
+};
   
   export default SingleDrinkCard;
