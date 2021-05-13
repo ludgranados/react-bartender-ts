@@ -15,18 +15,21 @@ const SingleDrinkCard:React.FC<DrinkProps> = ( {drink} ) => {
     <div id='single-drink-card'>
       <div className="row card d-flex justify-content-center align-items-center">
 
-        <div className="col mb-3" style={{maxWidth: "700px"}}>
+        <div className="col mt-5">
           <div className="row no-gutters">
-            <div className="col-md-4 d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center">
               <div
                 className='dr-bg-img'
                 style={{ backgroundImage: `url(${drink.strDrinkThumb})` }}></div>
             </div>
 
-            <div className="col-md-8">
+            <div className="text-center">
               <div className="card-body">
                 <h5 className="card-title">{drink.strDrink}</h5>
-                <p className="card-text">{drink.strGlass}</p>
+                <p className="card-text">Glass type - {drink.strGlass}</p>
+                <p className="card-text">Drink Category - {drink.strCategory}</p>
+                <p className="card-text">Alcoholic? - {drink.strAlcoholic}</p>
+                <h5 className="card-text mt-4">Instructions</h5>
                 <p className="card-text">{drink.strInstructions}</p>
               </div>
             </div>
@@ -34,39 +37,32 @@ const SingleDrinkCard:React.FC<DrinkProps> = ( {drink} ) => {
           </div>
         </div>
 
-        <div className="col mb-3" style={{maxWidth: "700px"}}>
-          <div className="row no-gutters d-flex justify-content-center">
-
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title">Ingredients</h5>
-                <p className="card-text">
-                  <ul>
-                    <li>{drink.strMeasure1} of {drink.strIngredient1}</li>
-                    <li>{drink.strMeasure2} of {drink.strIngredient2}</li>
-                    <li>{drink.strMeasure3} of {drink.strIngredient3}</li>
-                    <li>{drink.strMeasure4} of {drink.strIngredient4}</li>
-                    <li>{drink.strMeasure5} of {drink.strIngredient5}</li>
-                    <li>{drink.strMeasure6} of {drink.strIngredient6}</li>
-                    <li>{drink.strMeasure7} of {drink.strIngredient7}</li>
-                    <li>{drink.strMeasure8} of {drink.strIngredient8}</li>
-                    <li>{drink.strMeasure9} of {drink.strIngredient9}</li>
-                    <li>{drink.strMeasure10} of {drink.strIngredient10}</li>
-                    <li>{drink.strMeasure11} of {drink.strIngredient11}</li>
-                    <li>{drink.strMeasure12} of {drink.strIngredient12}</li>
-                    <li>{drink.strMeasure13} of {drink.strIngredient13}</li>
-                    <li>{drink.strMeasure14} of {drink.strIngredient14}</li>
-                    <li>{drink.strMeasure15} of {drink.strIngredient15}</li>
-                  </ul>
-                </p>
-                <p className="card-text"><small className="text-muted">{drink.strCategory}</small></p>
-                <p className="card-text"><small className="text-muted">{drink.strAlcoholic}</small></p>
-                <p className="card-text"><small className="text-muted">{drink.dateModified}</small></p>
-              </div>
-            </div>
+          <div className="row no-gutters">
+            <div className="col mb-5">
+                <div className="card-body text-center">
+                  <h5 className="card-title">Ingredients</h5>
+                    <ul className="card-text list-unstyled">
+                      {!drink.strIngredient1 ? '' : <li>{drink.strMeasure1} {drink.strIngredient1}</li>}
+                      {!drink.strIngredient2 ? '' : <li>{drink.strMeasure2} {drink.strIngredient2}</li>}
+                      {!drink.strIngredient3 ? '' : <li>{drink.strMeasure3} {drink.strIngredient3}</li>}
+                      {!drink.strIngredient4 ? '' : <li>{drink.strMeasure4} {drink.strIngredient4}</li>}
+                      {!drink.strIngredient5 ? '' : <li>{drink.strMeasure5} {drink.strIngredient5}</li>}
+                      {!drink.strIngredient6 ? '' : <li>{drink.strMeasure6} {drink.strIngredient6}</li>}
+                      {!drink.strIngredient7 ? '' : <li>{drink.strMeasure7} {drink.strIngredient7}</li>}
+                      {!drink.strIngredient8 ? '' : <li>{drink.strMeasure8} {drink.strIngredient8}</li>}
+                      {!drink.strIngredient9 ? '' : <li>{drink.strMeasure9} {drink.strIngredient9}</li>}
+                      {!drink.strIngredient10 ? '' : <li>{drink.strMeasure10} {drink.strIngredient10}</li>}
+                      {!drink.strIngredient11 ? '' : <li>{drink.strMeasure11} {drink.strIngredient11}</li>}
+                      {!drink.strIngredient12 ? '' : <li>{drink.strMeasure12} {drink.strIngredient12}</li>}
+                      {!drink.strIngredient13 ? '' : <li>{drink.strMeasure13} {drink.strIngredient13}</li>}
+                      {!drink.strIngredient14 ? '' : <li>{drink.strMeasure14} {drink.strIngredient14}</li>}
+                      {!drink.strIngredient15 ? '' : <li>{drink.strMeasure15} {drink.strIngredient15}</li>}
+                    </ul>
+                    <p className="card-text"><small className="text-muted">Last date modified - {drink.dateModified}</small></p>
+                </div>
             
+            </div>
           </div>
-        </div>
 
       </div>
 
