@@ -1,6 +1,6 @@
 type Drink = {
     idDrink: number,
-    strDrink: string,
+    strDrink: string | null,
     strDrinkAlternate: string | null,
     strTags: string | null,
     strVideo: string | null,

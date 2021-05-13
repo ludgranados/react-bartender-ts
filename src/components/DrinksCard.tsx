@@ -1,7 +1,16 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+// import { GlobalContext } from '../context/GlobalContext';
+import '../App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
-const DrinksCard = () => {
+interface CardProps {
+  drink: Drink;
+}
+
+const DrinksCard: React.FC<CardProps> = ({ drink }) => {
   const [drinks, setDrinks] = useState<Drink[]>([]);
+  const history = useHistory();
 
   useEffect(() => {
     fetchDrinks();
@@ -21,14 +30,47 @@ const DrinksCard = () => {
   console.log(drinks);
 
     return (
-      <div id='cart'>
-        <div className='row text-center'>
-          <div className='col'>
-            <h2>Drinks Card!</h2>
-            <h3>You have {drinks.length} drinks!</h3>
-          </div>
-        </div>
+  <div className='card h-100 product-card-hover d-flex flex-column justify-content-between'>
+     
+      <div className='drinks'>
+
+        {/* <div className=' '> */}
+            
+          {/* <div className=''> */}
+
+            <div className='card-body'>
+            <h2>{drink.strDrink}</h2>
+
+            {/** Beverage Image */}
+            <div
+            className='drink-img'
+            style={{ backgroundImage: `url(${drink.strDrinkThumb})` }}>  
+            </div>
+
+            <Link to={`/cocktails/${drink.idDrink}`}>Beverage Details</Link>
+
+            {/** Type of Beverage */}
+            <h4>"The {drink.strDrink} is an {drink.strAlcoholic} beverage."</h4>
+            
+            {/** Beverage Class */}
+            <h4>Class</h4>
+            <span>
+              {drink.strCategory}
+            </span>
+            <div style={{fontSize: '80%', color: 'green'}}>
+            <span>
+             {drink.strTags} 
+            </span>
+            </div>
+
+            <br/>
+
+            </div>
+          
       </div>
+  </div>
+
+
     );
   };
   
