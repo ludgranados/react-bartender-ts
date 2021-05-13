@@ -28,6 +28,22 @@
   color: #61dafb;
 }
 
+.drink-img{
+  background-size: cover;
+  background-position: top;
+  margin-left: 32%;
+  background-repeat: no-repeat;
+  height: 260px;
+  width: 35%;
+  border-radius: '200%';
+  border-style: ridge;
+}
+
+.drinks{
+  margin-bottom: 3%;
+  border-style: groove;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
