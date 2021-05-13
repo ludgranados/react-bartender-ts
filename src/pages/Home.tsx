@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import DrinksCard from '../components/DrinksCard';
 import { GlobalContext } from '../context/GlobalContext';
 
@@ -18,7 +19,9 @@ const Home = () => {
              <h3>You have {drinks.length} drinks!</h3>
              {drinks.map((drink: Drink, i:number) => {
                return (
-                <div key={i}>{drink.strDrink}</div>
+                <div key={i}>{drink.strDrink}
+                <Link to={`/cocktails/${drink.idDrink}`}>{drink.strDrink}</Link></div>
+
                );
              })}
              <div className='card'>

@@ -42,12 +42,13 @@ export const GlobalProvider: React.FC = ({ children }) => {
     }
   };
 
-  const getSingleDrink = async (drinkId: number) => {
+  const getSingleDrink = async (drinkId: string) => {
     dispatch({ type: 'SET_LOADING', payload: true });
     try {
-      let { data } = await instance.get(`/drinks/${drinkId}`);
-      console.log(data);
-      dispatch({ type: 'GET_SINGLE_DRINK', payload: data.drink });
+      let { data } = await instance.get(`/api/json/v1/1/lookup.php?i=${drinkId}`);
+      console.log(data, "message here");
+      // debugger;
+      dispatch({ type: 'GET_SINGLE_DRINK', payload: data.drinks[0] });
     } catch (e) {
       console.log(e);
     }
