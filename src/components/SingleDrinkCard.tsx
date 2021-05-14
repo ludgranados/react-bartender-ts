@@ -27,10 +27,8 @@ const SingleDrinkCard:React.FC<DrinkProps> = ( {drink} ) => {
               <div className="card-body">
                 <h5 className="card-title">{drink.strDrink}</h5>
                 <p className="card-text">Glass type - {drink.strGlass}</p>
-                <p className="card-text">Drink Category - {drink.strCategory}</p>
+                <p className="card-text">Drink category - {drink.strCategory}</p>
                 <p className="card-text">Alcoholic? - {drink.strAlcoholic}</p>
-                <h5 className="card-text mt-4">Instructions</h5>
-                <p className="card-text">{drink.strInstructions}</p>
               </div>
             </div>
 
@@ -58,7 +56,9 @@ const SingleDrinkCard:React.FC<DrinkProps> = ( {drink} ) => {
                       {!drink.strIngredient14 ? '' : <li>{drink.strMeasure14} {drink.strIngredient14}</li>}
                       {!drink.strIngredient15 ? '' : <li>{drink.strMeasure15} {drink.strIngredient15}</li>}
                     </ul>
-                    <p className="card-text"><small className="text-muted">Last date modified - {drink.dateModified}</small></p>
+                    <h5 className="card-text mt-4">Instructions</h5>
+                    <p className="card-text">{drink.strInstructions}</p>
+                    <p className="card-text mt-4"><small className="text-muted">Last date modified - {drink.dateModified}</small></p>
                 </div>
             
             </div>
