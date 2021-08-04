@@ -24,6 +24,7 @@ const Home = () => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       console.log(event.target.value);
       setSearchTerm(event.target.value);
+      console.log(event);
   };
 
   useEffect(() => {
